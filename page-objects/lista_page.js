@@ -1,30 +1,30 @@
 var nextCommands = {
     acessarLogin() {
-      return this.waitForElementVisible('@body')
+      return this.waitForElementVisible('@body', 15000)
         .assert.title('trex-row - T')
         .click('@btnLogar')
         .click('@btnLoginGoogle');
     },
     realizarLogin() {
-        return this.waitForElementVisible('@inpEmailGoogle', 5000)
+        return this.waitForElementVisible('@inpEmailGoogle', 15000)
         .setValue('@inpEmailGoogle', 'qapasseidireto@gmail.com')
         .click('@btnNextEmail')
-        .waitForElementVisible('@inpSenhaGoogle')
+        .waitForElementVisible('@inpSenhaGoogle', 15000)
         .setValue('@inpSenhaGoogle', 'Qapd1234@')
         .click('@btnNextSenha')
     },
     criarLista() {
         return this.waitForElementVisible('@btnSalvarArquivo', 15000)
         .click('@btnSalvarArquivo')
-        .waitForElementVisible('@btnCriarNovaLista')
+        .waitForElementVisible('@btnCriarNovaLista', 15000)
         .click('@btnCriarNovaLista')
-        .waitForElementVisible('@inpNomeLista')
+        .waitForElementVisible('@inpNomeLista', 15000)
         .setValue('@inpNomeLista', 'Nova lista')
         .click('@btnSalvarLista')
-        .waitForElementVisible('@tituloPage')
+        .waitForElementVisible('@tituloPage', 15000)
     },
     validarListaCriada() {
-        return this.waitForElementVisible('@nomeListaCriada')
+        return this.waitForElementVisible('@nomeListaCriada', 15000)
         .assert.containsText('@nomeListaCriada', 'Nova lista')
     }
 };
