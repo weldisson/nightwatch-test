@@ -1,6 +1,7 @@
 const { client } = require('nightwatch-api');
 const { Given, When, Then } = require('cucumber');
 const lista_page = client.page.lista_page();
+const browser = require('nightwatch');
 
 Given('que eu esteja no site Passei Direto', () => {
     return lista_page
@@ -9,25 +10,21 @@ Given('que eu esteja no site Passei Direto', () => {
 });
 Given('logado no sistema com uma conta gmail', () => {
     client
-        .windowHandles((result) => {
+        .windowHandles(function(result) {
             var handle = result.value[1]
             this.switchWindow(handle)
-            
         })
     return lista_page
         .realizarLogin();
-    // return lista_page
-    //     .realizarLogin();
 });
 When('salvo um arquivo em uma nova lista', () => {
     client
-        .windowHandles((result) => {
+        .windowHandles(function(result) {
             var handle = result.value[0]
             this.switchWindow(handle)
-        });
+        })
     return lista_page
         .criarLista();
-    
 });
 
 Then('visualizo a nova lista criada com sucesso', () => {

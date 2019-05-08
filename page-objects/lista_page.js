@@ -6,7 +6,7 @@ var nextCommands = {
         .click('@btnLoginGoogle');
     },
     realizarLogin() {
-        return this.waitForElementVisible('@inpEmailGoogle')
+        return this.waitForElementVisible('@inpEmailGoogle', 5000)
         .setValue('@inpEmailGoogle', 'qapasseidireto@gmail.com')
         .click('@btnNextEmail')
         .waitForElementVisible('@inpSenhaGoogle')
@@ -14,7 +14,7 @@ var nextCommands = {
         .click('@btnNextSenha')
     },
     criarLista() {
-        return this.waitForElementVisible('@btnSalvarArquivo')
+        return this.waitForElementVisible('@btnSalvarArquivo', 15000)
         .click('@btnSalvarArquivo')
         .waitForElementVisible('@btnCriarNovaLista')
         .click('@btnCriarNovaLista')
@@ -40,9 +40,9 @@ module.exports = {
         inpSenhaGoogle:'input[name="password"]',
         btnNextEmail: 'div[id="identifierNext"]',
         btnNextSenha:'#passwordNext > content > span',
-        btnSalvarArquivo: 'button[class="pd-btn_base pd-button-save v-btn v-btn--depressed v-btn--round theme--light orange"]',
-        inpNomeLista: 'input[aria-label="Nome da Lista"]',
-        btnSalvarLista: 'button[class="pd-btn_base v-btn v-btn--depressed v-btn--round theme--light orange"]',
+        btnSalvarArquivo: '#app > div.application--wrap > main > div > div > div > div > div.layout.align-space-around.justify-space-around.row.fill-height > div.flex.mv-material-viewer-main > div.layout.mv-material-viewer-toolbar.align-center.justify-space-between.row.fill-height.mv-viewer-toolbar > div:nth-child(3) > ul > li > div > button > div',
+        inpNomeLista: '#modals-container > div > div > div.v--modal-box > div > div.main > div > div.form > div > div > div.v-input__slot > div > input[type=text]',
+        btnSalvarLista: '#modals-container > div > div > div.v--modal-box > div > div.main > div > div.footer > button.pd-btn_base.v-btn.v-btn--depressed.v-btn--round.theme--light.orange > div',
         tituloPage: 'div[class="notification-wrapper"] h2',
         nomeListaCriada: 'h1[class="pd-card-title"]',
         btnCriarNovaLista: 'div[class="add-container"]'
