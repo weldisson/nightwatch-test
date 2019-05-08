@@ -8,15 +8,31 @@ Given('que eu esteja no site Passei Direto', () => {
         .acessarLogin();
 });
 Given('logado no sistema com uma conta gmail', () => {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
+    client
+        .windowHandles((result) => {
+            var handle = result.value[1]
+            this.switchWindow(handle)
+            
+        })
+    return lista_page
+        .realizarLogin();
+    // return lista_page
+    //     .realizarLogin();
 });
 When('salvo um arquivo em uma nova lista', () => {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
+    client
+        .windowHandles((result) => {
+            var handle = result.value[0]
+            this.switchWindow(handle)
+        });
+    return lista_page
+        .criarLista();
+    
 });
 
 Then('visualizo a nova lista criada com sucesso', () => {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
+    client
+        .url('https://www.passeidireto.com/perfil/65340787/listas')
+    return lista_page
+        .validarListaCriada();
 });
