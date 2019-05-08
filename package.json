@@ -1,0 +1,30 @@
+{
+  "name": "nightwatch-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js --require cucumber.conf.js --require step-definitions --format node_modules/cucumber-pretty"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WELDISSON/nightwatch.git"
+  },
+  "author": "Weldisson Araujo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WELDISSON/nightwatch/issues"
+  },
+  "homepage": "https://github.com/WELDISSON/nightwatch#readme",
+  "dependencies": {
+    "cucumber": "^5.1.0",
+    "cucumber-pretty": "^1.5.0",
+    "dotenv": "^8.0.0",
+    "nightwatch-api": "^2.2.0"
+  },
+  "devDependencies": {
+    "chromedriver": "^74.0.0",
+    "eslint": "^5.16.0",
+    "nightwatch": "^1.0.19"
+  }
+}
